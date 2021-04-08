@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
-import 'package:grocery_store/constants.dart';
 import 'horizontal_listview.dart';
+import 'products.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -33,11 +33,21 @@ class _DashboardState extends State<Dashboard> {
         image_carousel,
 
         new Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(8.0),
           child: new Text('Categories', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
         ),
         //Horizontal List View
         HorizontalList(),
+
+        new Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: new Text('Recent Products', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
+        ),
+
+        Container(
+          height: 350,
+          child: Products(),
+        ),
 
       ],
     );
