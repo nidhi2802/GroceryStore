@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/Screens/Dashboard/dashboard.dart';
 import 'package:grocery_store/constants.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -23,9 +24,15 @@ class _ProductDetailsState extends State<ProductDetails> {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: kPrimaryLightColor,
-        title: Text(
-          'My Grocery Store',
-          style: TextStyle(fontSize: 15),
+        title: InkWell(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> new Dashboard_Screen()));
+          },
+
+          child: Text(
+            'My Grocery Store',
+            style: TextStyle(fontSize: 15),
+          ),
         ),
         actions: <Widget>[
           new IconButton(
@@ -34,12 +41,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                 color: Colors.white,
               ),
               onPressed: () {}),
-          new IconButton(
-              icon: Icon(
-                Icons.shopping_cart_rounded,
-                color: Colors.white,
-              ),
-              onPressed: () {})
         ],
       ),
       body: new ListView(
@@ -165,12 +166,20 @@ class _ProductDetailsState extends State<ProductDetails> {
               Padding(padding: const EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
                 child: new Text("Product Brand", style: TextStyle(color: Colors.grey),),),
               Padding(padding: EdgeInsets.all(5.0),
-                child: new Text("Brand Name"),)
+                child: new Text("Brand Name"),),
             ],
-          )
+          ),
+          Divider(),
+          new Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: new Text("Similar Products"),
+              ),
+            ],
+          ),
         ],
       ),
     );
   }
-
 }

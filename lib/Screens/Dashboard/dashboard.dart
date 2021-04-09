@@ -68,9 +68,9 @@ class Dashboard_Screen extends StatelessWidget {
               InkWell(
                 onTap: () {},
                 child: ListTile(
-                  title: Text('Categories'),
+                  title: Text('My Cart'),
                   leading:
-                  Icon(Icons.dashboard_rounded, color: kPrimaryLightColor),
+                  Icon(Icons.shopping_cart, color: kPrimaryLightColor),
                 ),
               ),
               InkWell(

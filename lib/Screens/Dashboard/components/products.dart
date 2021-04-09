@@ -33,6 +33,30 @@ class _ProductsState extends State<Products> {
       "price": "90",
       "unit": "500 gm",
     },
+    {
+      "name": "Amul Ghee",
+      "picture": "assets/products/ghee.jpg",
+      "price": "540",
+      "unit": "500 ml",
+    },
+    {
+      "name": "Odonil Freshner",
+      "picture": "assets/products/hgiene1.jpg",
+      "price": "120",
+      "unit": "1",
+    },
+    {
+      "name": "Aier Room Freshner",
+      "picture": "assets/products/hgiene2.jpg",
+      "price": "300",
+      "unit": "1",
+    },
+    {
+      "name": "No.1 Coconut Soap",
+      "picture": "assets/products/household1.jpg",
+      "price": "60",
+      "unit": "120 gm",
+    },
   ];
 
   @override
@@ -71,7 +95,7 @@ class Single_prod extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Hero(
-        tag: product_name,
+        tag: new Text("Hero 1"),
         child: Material(
           child: InkWell(
             onTap: () => Navigator.of(context).push(new MaterialPageRoute(
@@ -83,22 +107,14 @@ class Single_prod extends StatelessWidget {
                 ))),
             child: GridTile(
               footer: Container(
-                color: Colors.white70,
-                child: ListTile(
-                  leading: Text(
-                    product_name,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  title: Text(
-                    '\Rs$product_price',
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.w800),
-                  ),
-                  subtitle: Text(
-                    product_unit,
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.w800),
-                  ),
+                color: Colors.white,
+                child: new Row(
+                  children: <Widget>[
+                    Expanded(
+                        child: Text(product_name, style: TextStyle(fontWeight: FontWeight.bold))),
+                    new Text("\Rs$product_price", style: TextStyle(
+                        color: kPrimaryLightColor, fontWeight: FontWeight.bold,),)
+                  ],
                 ),
               ),
               child: Image.asset(

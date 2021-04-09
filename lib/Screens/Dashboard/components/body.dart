@@ -23,6 +23,7 @@ class _DashboardState extends State<Dashboard> {
       animationDuration: Duration(milliseconds: 1000),
       dotSize: 5.0,
       indicatorBgPadding: 0.1,
+      dotBgColor: Colors.transparent,
     ),
   );
 
