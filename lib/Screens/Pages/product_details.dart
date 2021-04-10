@@ -100,7 +100,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       child: new Icon(Icons.arrow_drop_down)),
                 ],
               ),)),
-              Expanded(child: MaterialButton(onPressed: (){
+             /* Expanded(child: MaterialButton(onPressed: (){
                 showDialog(context: context,
                     builder: (context){
                       return new AlertDialog(
@@ -126,7 +126,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     Expanded(
                         child: new Icon(Icons.arrow_drop_down)),
                   ],
-                ),))
+                ),))*/
             ],
           ),
 
@@ -194,19 +194,19 @@ class _Similar_productsState extends State<Similar_products> {
     {
       "name": "Apples",
       "picture": "assets/products/apples.jpg",
-      "price": "90",
+      "price": 90,
       "unit": "1 kg",
     },
     {
       "name": "Coriander",
       "picture": "assets/products/coriander.jpg",
-      "price": "50",
+      "price": 50,
       "unit": "500 gm",
     },
     {
       "name": "Lays Wafers",
       "picture": "assets/products/wafers.jpg",
-      "price": "35",
+      "price": 35,
       "unit": "1",
     },
   ];
