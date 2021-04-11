@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/Screens/Dashboard/dashboard.dart';
 import 'package:grocery_store/Screens/Pages/components/dairy_products.dart';
 import 'package:grocery_store/constants.dart';
 
@@ -13,9 +14,14 @@ class _DairyState extends State<Dairy> {
     return Scaffold(
       appBar: new AppBar(
         backgroundColor: kPrimaryLightColor,
-        title: Text(
-          'Dairy',
-          style: TextStyle(fontSize: 15),
+        title: InkWell(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> new Dashboard_Screen()));
+          },
+          child: Text(
+            'Dairy',
+            style: TextStyle(fontSize: 15),
+          ),
         ),
         actions: <Widget>[
           new IconButton(
