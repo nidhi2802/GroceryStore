@@ -66,8 +66,8 @@ class Single_foodgrain_product extends StatelessWidget {
             child: ListTile(
               leading: Image.asset(
                 cart_prod_picture,
-                width: 80,
-                height: 80,
+                width: 100,
+                height: 100,
               ),
               title: Text(
                 cart_prod_name,
@@ -77,17 +77,11 @@ class Single_foodgrain_product extends StatelessWidget {
                 children: <Widget>[
                   new Row(
                     children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20.0, 8.0, 8.0, 8.0),
-                        child: Text("Quantity:"),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(0.0),
-                        child: Text(
+                     Text("Quantity:"),
+                    Text(
                           cart_prod_qty,
                           style: TextStyle(color: kPrimaryLightColor),
                         ),
-                      ),
                     ],
                   ),
                   Container(
@@ -101,6 +95,8 @@ class Single_foodgrain_product extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: kPrimaryLightColor),
                         ),
+                        TextButton(onPressed: (){},
+                            child: Text("Add", style: TextStyle(color: kPrimaryLightColor))),
                       ],
                     ),
                   ),

@@ -78,13 +78,10 @@ class Single_Snack_Product extends StatelessWidget {
                   new Row(
                     children: <Widget>[
                        Text("Quantity: "),
-                      Padding(
-                        padding: const EdgeInsets.all(0.0),
-                        child: Text(
+                        Text(
                           cart_prod_qty,
                           style: TextStyle(color: kPrimaryLightColor),
                         ),
-                      ),
                     ],
                   ),
                   Container(
@@ -98,11 +95,8 @@ class Single_Snack_Product extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: kPrimaryLightColor),
                         ),
-                        Expanded(child: MaterialButton(onPressed: (){},
-                          color: kPrimaryLightColor,
-                          textColor: Colors.white,
-                          elevation: 0.2,
-                          child: new Text("Add"),)),
+                        TextButton(onPressed: (){},
+                            child: Text("Add", style: TextStyle(color: kPrimaryLightColor))),
 
                       ],
                     ),

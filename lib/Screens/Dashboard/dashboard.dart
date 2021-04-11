@@ -50,7 +50,10 @@ class Dashboard_Screen extends StatelessWidget {
                 )),
             //body
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new Dashboard_Screen()));
+              },
               child: ListTile(
                 title: Text('Home Page'),
                 leading: Icon(Icons.home, color: kPrimaryLightColor),
@@ -81,22 +84,7 @@ class Dashboard_Screen extends StatelessWidget {
                 leading: Icon(Icons.shopping_cart, color: kPrimaryLightColor),
               ),
             ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('Wishlist'),
-                leading:
-                    Icon(Icons.favorite_outlined, color: kPrimaryLightColor),
-              ),
-            ),
             Divider(),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('Settings'),
-                leading: Icon(Icons.settings, color: Colors.grey),
-              ),
-            ),
             InkWell(
               onTap: () {},
               child: ListTile(

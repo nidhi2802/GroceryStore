@@ -114,7 +114,6 @@ class _ProductDetailsState extends State<ProductDetails> {
 
               new IconButton(icon: Icon(Icons.add_shopping_cart, color: kPrimaryLightColor,), onPressed: (){}),
 
-              new IconButton(icon: Icon(Icons.favorite_border, color: kPrimaryLightColor,), onPressed: (){}),
             ],
           ),
 
