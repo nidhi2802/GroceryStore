@@ -95,30 +95,28 @@ class Single_cart_product extends StatelessWidget {
                 ),
               ],
             ),
-            new Container(
+            Container(
               alignment: Alignment.topLeft,
-              child: Text(
-                "Rs. ${cart_prod_price}",
-                style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                    color: kPrimaryLightColor),
-              ),
-            )
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      "Rs. ${cart_prod_price}",
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: kPrimaryLightColor),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(50.0,0.0,0.0,0.0),
+                      child: IconButton(icon: Icon(Icons.indeterminate_check_box, color: kPrimaryLightColor,), onPressed: (){},),
+                    ),
+                    Text("$cart_prod_packet"),
+                    IconButton(icon: Icon(Icons.add_box_rounded, color: kPrimaryLightColor), onPressed: (){},)
+                  ],
+                ),
+            ),
           ],
         ),
-        /*trailing:  Container(
-          alignment: Alignment.topRight,
-          child: Column(
-            children: <Widget>[
-              IconButton(icon: Icon(Icons.arrow_drop_up), onPressed: (){}, ),
-              Text("$cart_prod_packet"),
-              IconButton(icon: Icon(Icons.arrow_drop_down), onPressed: (){},),
-            ],
-          )
-            ),*/
-
-
       ),
     );
   }
