@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/Screens/Pages/beverages.dart';
+import 'package:grocery_store/Screens/Pages/dairy.dart';
+import 'package:grocery_store/Screens/Pages/foodgrains.dart';
+import 'package:grocery_store/Screens/Pages/fruits_vegetables.dart';
+import 'package:grocery_store/Screens/Pages/household.dart';
+import 'package:grocery_store/Screens/Pages/hygiene.dart';
+import 'package:grocery_store/Screens/Pages/snacks.dart';
 import 'package:grocery_store/constants.dart';
 
 class HorizontalList extends StatelessWidget {
@@ -49,12 +56,45 @@ class Category extends StatelessWidget {
 
   Category({this.image_caption, this.image_location});
 
+  void pageRoute(String caption, BuildContext context){
+    if(caption=='Foodgrains'){
+      Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> new Foodgrains()));
+    }
+
+    if(caption=='Fruits & Vegetables'){
+      Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> new Fruits()));
+    }
+
+    if(caption=='Dairy Products'){
+      Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> new Dairy()));
+    }
+
+    if(caption=='Beverages'){
+      Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> new Beverages()));
+    }
+
+    if(caption=='Household Cleaning'){
+      Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> new Household()));
+    }
+
+    if(caption=='Hygiene'){
+      Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> new Hygiene()));
+    }
+
+    if(caption=='Snacks'){
+      Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> new Snacks()));
+    }
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(0.2),
       child: InkWell(
-        onTap: () {},
+        onTap: (){
+          pageRoute(image_caption, context);
+        },
         child: Container(
           width: 100.0,
           child: ListTile(

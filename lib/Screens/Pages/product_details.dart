@@ -62,7 +62,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   title: new Row(
                     children: <Widget>[
                       Expanded(
-                          child: new Text("Rs${widget.product_detail_price}", style: TextStyle(color: Colors.black),)),
+                          child: new Text("Rs ${widget.product_detail_price}", style: TextStyle(color: Colors.black),)),
                       Expanded(
                           child: new Text("${widget.product_detail_unit}", style: TextStyle(fontWeight: FontWeight.bold, color: kPrimaryLightColor),)),
                     ],
@@ -100,34 +100,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       child: new Icon(Icons.arrow_drop_down)),
                 ],
               ),)),
-             /* Expanded(child: MaterialButton(onPressed: (){
-                showDialog(context: context,
-                    builder: (context){
-                      return new AlertDialog(
-                        title: new Text("Packets"),
-                        content: new Text("Select the total packets"),
-                        actions: <Widget>[
-                          new MaterialButton(onPressed: (){
-                            Navigator.of(context).pop(context);
-                          },
-                            child: new Text("Close"),
-                          )
                         ],
-                      );
-                    });
-              },
-                color: Colors.white,
-                textColor: Colors.grey,
-                elevation: 0.2,
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                        child: Text("Quantity")),
-                    Expanded(
-                        child: new Icon(Icons.arrow_drop_down)),
-                  ],
-                ),))*/
-            ],
           ),
 
 
