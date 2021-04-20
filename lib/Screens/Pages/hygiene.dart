@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/Screens/Dashboard/dashboard.dart';
+import 'package:grocery_store/Screens/Pages/cart.dart';
 import 'package:grocery_store/Screens/Pages/components/hygiene_products.dart';
 import 'package:grocery_store/constants.dart';
 
@@ -30,6 +31,15 @@ class _HygieneState extends State<Hygiene> {
                 color: Colors.white,
               ),
               onPressed: () {}),
+          new IconButton(
+              icon: Icon(
+                Icons.shopping_cart_rounded,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new Cart()));
+              })
         ],
       ),
 

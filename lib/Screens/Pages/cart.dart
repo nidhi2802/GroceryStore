@@ -35,12 +35,13 @@ class _CartState extends State<Cart> {
           children: <Widget>[
             Expanded(
                 child: ListTile(
-              title: new Text("Total Amount: "),
-              subtitle: new Text("Rs 500"),
+                  title: new Text("Total Amount: "),
+                   subtitle: new Text("Rs 500"),
             )),
-            Expanded(child: new MaterialButton(onPressed: () {},
-            child: Text("Check out", style: TextStyle(color: Colors.white),),
-            color: kPrimaryLightColor,))
+            Expanded(child: new MaterialButton(
+              onPressed: () {},
+                  child: Text("Check out", style: TextStyle(color: Colors.white),),
+                    color: kPrimaryLightColor,))
           ],
         ),
       ),

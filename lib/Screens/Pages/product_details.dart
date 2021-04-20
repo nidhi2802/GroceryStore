@@ -113,7 +113,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                 child: new Text("Order Now"),)),
 
               new IconButton(icon: Icon(Icons.add_shopping_cart, color: kPrimaryLightColor,), onPressed: (){}),
-
             ],
           ),
 
@@ -144,7 +143,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           Divider(),
           Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: new Text("Similar Products"),
+                child: new Text("More Products"),
               ),
          Container(
            height: 360.0,

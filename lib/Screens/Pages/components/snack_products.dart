@@ -66,8 +66,8 @@ class Single_Snack_Product extends StatelessWidget {
             child: ListTile(
               leading: Image.asset(
                 cart_prod_picture,
-                width: 100,
-                height: 100,
+                width: 80,
+                height: 80,
               ),
               title: Text(
                 cart_prod_name,
@@ -77,10 +77,16 @@ class Single_Snack_Product extends StatelessWidget {
                 children: <Widget>[
                   new Row(
                     children: <Widget>[
-                       Text("Quantity: "),
-                        Text(
-                          cart_prod_qty,
-                          style: TextStyle(color: kPrimaryLightColor),
+                       Padding(
+                         padding: const EdgeInsets.fromLTRB(0.0,8.0,0.0,8.0),
+                         child: Text("Quantity: "),
+                       ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0.0,8.0,0.0,8.0),
+                          child: Text(
+                            cart_prod_qty,
+                            style: TextStyle(color: kPrimaryLightColor),
+                          ),
                         ),
                     ],
                   ),
@@ -95,13 +101,15 @@ class Single_Snack_Product extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: kPrimaryLightColor),
                         ),
-                        TextButton(onPressed: (){},
-                            child: Text("Add", style: TextStyle(color: kPrimaryLightColor))),
-
                       ],
                     ),
                   ),
                 ],
+              ),
+              trailing: TextButton(
+                onPressed: (){},
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(kPrimaryLightColor)),
+                child: Text("Add", style: TextStyle(color: Colors.white, fontSize: 16.0)),
               ),
             ),
           ),

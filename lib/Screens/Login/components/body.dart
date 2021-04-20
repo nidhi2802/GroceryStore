@@ -17,6 +17,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
 
   final GlobalKey<FormState> _formkey = GlobalKey();
+  bool hidepass = true;
 
   Map<String, String> _authData = {
     'email' : '',
@@ -132,11 +133,19 @@ class _LoginState extends State<Login> {
                             borderRadius: BorderRadius.circular(29),
                           ),
                           child: TextFormField(
-                            obscureText: true,
+                            obscureText: hidepass,
                             decoration: InputDecoration(
                               hintText: "Password",
                               icon: Icon(Icons.lock, color: kPrimaryColor,),
-                              suffixIcon: Icon(Icons.visibility, color: kPrimaryColor,),
+                              suffixIcon: IconButton(
+                                icon: Icon(Icons.visibility, color: kPrimaryColor,),
+                                onPressed: (){
+                                  setState(() {
+                                    hidepass = false;
+                                  });
+                                },
+                                //Icons.visibility, color: kPrimaryColor,
+                              ),
                               border: InputBorder.none,
                             ),
                             validator: (value)
@@ -186,6 +195,8 @@ class _LoginState extends State<Login> {
         ),
     );
   }
+
+
 }
 
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/Screens/Dashboard/dashboard.dart';
+import 'package:grocery_store/Screens/Pages/cart.dart';
 import 'package:grocery_store/constants.dart';
 
 import 'components/beverages_products.dart';
@@ -32,6 +33,15 @@ class _BeveragesState extends State<Beverages> {
                 color: Colors.white,
               ),
               onPressed: () {}),
+          new IconButton(
+              icon: Icon(
+                Icons.shopping_cart_rounded,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new Cart()));
+              })
         ],
       ),
 

@@ -29,7 +29,7 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: <Widget>[
         image_carousel,
 
@@ -40,10 +40,21 @@ class _DashboardState extends State<Dashboard> {
         //Horizontal List View
         HorizontalList(),
 
-        new Padding(
+        Row(
+          children: <Widget>[
+            new Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: new Text('Recent Products', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
+            ),
+
+          ],
+        ),
+
+
+/*        new Padding(
           padding: const EdgeInsets.all(8.0),
           child: new Text('Recent Products', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
-        ),
+        ),*/
 
         Container(
           height: 350,

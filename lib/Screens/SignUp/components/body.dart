@@ -17,7 +17,7 @@ class _SignUpState extends State<SignUp> {
 
   final GlobalKey<FormState> _formkey = GlobalKey();
   TextEditingController _passwordController = new TextEditingController();
-
+  bool hidepass = true;
   Map<String, String> _authData = {
     'email' : '',
     'password' : ''
@@ -128,12 +128,20 @@ class _SignUpState extends State<SignUp> {
                         borderRadius: BorderRadius.circular(29),
                       ),
                       child: TextFormField(
-                        obscureText: true,
+                        obscureText: hidepass,
                         controller: _passwordController,
                         decoration: InputDecoration(
                           hintText: "Password",
                           icon: Icon(Icons.lock, color: kPrimaryColor,),
-                          suffixIcon: Icon(Icons.visibility, color: kPrimaryColor,),
+                          suffixIcon: IconButton(
+                            icon: Icon(Icons.visibility, color: kPrimaryColor,),
+                            onPressed: (){
+                              setState(() {
+                                hidepass = false;
+                              });
+                            },
+                            //Icons.visibility, color: kPrimaryColor,
+                             ),
                           border: InputBorder.none,
                         ),
                         validator: (value)
@@ -159,11 +167,19 @@ class _SignUpState extends State<SignUp> {
                         borderRadius: BorderRadius.circular(29),
                       ),
                       child: TextFormField(
-                        obscureText: true,
+                        obscureText: hidepass,
                         decoration: InputDecoration(
                           hintText: "Confirm Password",
                           icon: Icon(Icons.lock, color: kPrimaryColor,),
-                          suffixIcon: Icon(Icons.visibility, color: kPrimaryColor,),
+                          suffixIcon: IconButton(
+                            icon: Icon(Icons.visibility, color: kPrimaryColor,),
+                            onPressed: (){
+                              setState(() {
+                                hidepass = false;
+                              });
+                            },
+                            //Icons.visibility, color: kPrimaryColor,
+                          ),
                           border: InputBorder.none,
                         ),
                         validator: (value)

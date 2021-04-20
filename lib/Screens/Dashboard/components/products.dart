@@ -67,11 +67,14 @@ class _ProductsState extends State<Products> {
         crossAxisCount: 2,
       ),
       itemBuilder: (BuildContext context, int index) {
-        return Single_prod(
-          product_name: products_list[index]['name'],
-          product_picture: products_list[index]['picture'],
-          product_price: products_list[index]['price'],
-          product_unit: products_list[index]['unit'],
+        return Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Single_prod(
+            product_name: products_list[index]['name'],
+            product_picture: products_list[index]['picture'],
+            product_price: products_list[index]['price'],
+            product_unit: products_list[index]['unit'],
+          ),
         );
       },
     );
@@ -93,9 +96,8 @@ class Single_prod extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Hero(
-        tag: new Text("Hero 1"),
+    return Container(
+      //child: Hero(
         child: Material(
           child: InkWell(
             onTap: () => Navigator.of(context).push(new MaterialPageRoute(
@@ -108,14 +110,24 @@ class Single_prod extends StatelessWidget {
             child: GridTile(
               footer: Container(
                 color: Colors.white,
-                child: new Row(
+                child: ListTile(
+                  title: Text(
+                    product_name,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  trailing: Text(
+                      "\Rs$product_price", style: TextStyle(
+                    color: kPrimaryLightColor, fontWeight: FontWeight.bold,)
+                  ),
+                ),
+                /*child: new Row(
                   children: <Widget>[
                     Expanded(
                         child: Text(product_name, style: TextStyle(fontWeight: FontWeight.bold))),
                     new Text("\Rs$product_price", style: TextStyle(
                         color: kPrimaryLightColor, fontWeight: FontWeight.bold,),)
                   ],
-                ),
+                ),*/
               ),
               child: Image.asset(
                 product_picture,
@@ -124,7 +136,7 @@ class Single_prod extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      //),
     );
   }
 }

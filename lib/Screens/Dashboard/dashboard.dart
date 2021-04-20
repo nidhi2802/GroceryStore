@@ -4,22 +4,43 @@ import 'package:grocery_store/Screens/Pages/cart.dart';
 import 'package:grocery_store/constants.dart';
 
 class Dashboard_Screen extends StatelessWidget {
+
+  TextEditingController _searchController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: kPrimaryLightColor,
-        title: Text(
-          'My Grocery Store',
-          style: TextStyle(fontSize: 15),
+        title: Material(
+          borderRadius: BorderRadius.circular(10.0),
+          elevation: 0.1,
+          color: Colors.grey[50],
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: TextFormField(
+                  controller: _searchController,
+                  decoration: InputDecoration(
+                    hintText: "Search",
+                    border: InputBorder.none
+                  ),
+                  validator: (value){
+                    if(value.isEmpty){
+                      return "Search field cannot be empty";
+                    }
+                    return null;
+                  },
+                ),
+          ),
         ),
         actions: <Widget>[
-          new IconButton(
+           IconButton(
               icon: Icon(
                 Icons.search,
                 color: Colors.white,
               ),
-              onPressed: () {}),
+              onPressed: () {
+              }),
           new IconButton(
               icon: Icon(
                 Icons.shopping_cart_rounded,
