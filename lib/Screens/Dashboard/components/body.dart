@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:grocery_store/models/appProvider.dart';
 import 'horizontal_listview.dart';
 import 'products.dart';
+import 'package:provider/provider.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -9,6 +11,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+
   Widget image_carousel = new Container(
     height: 200.0,
     child: Carousel(
@@ -29,6 +32,10 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
+    AppProvider appProvider = Provider.of<AppProvider>(context);
+
+
+
     return Column(
       children: <Widget>[
         image_carousel,
@@ -40,21 +47,21 @@ class _DashboardState extends State<Dashboard> {
         //Horizontal List View
         HorizontalList(),
 
-        Row(
+        /*Row(
           children: <Widget>[
             new Padding(
               padding: const EdgeInsets.all(8.0),
               child: new Text('Recent Products', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
             ),
 
+            Text(appProvider.featureProducts.length.toString(), style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
+
           ],
-        ),
-
-
-/*        new Padding(
+        ),*/
+        new Padding(
           padding: const EdgeInsets.all(8.0),
           child: new Text('Recent Products', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
-        ),*/
+        ),
 
         Container(
           height: 350,

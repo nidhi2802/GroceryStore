@@ -1,11 +1,16 @@
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:grocery_store/models/product_model.dart';
 
-class ProductService{
+class Product_Service{
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  String collection = 'products';
+  String collection = "products";
 
-  Future<List<DocumentSnapshot>> getFeaturedProducts() => _firestore.collection(collection).where('featured', isEqualTo: true).getDocuments().then((snap){
-    return snap.documents;
-  });
 
+  Future<List<Product_Model>> getProducts() async =>
+      _firestore.collection(collection).where('feature', isEqualTo: true).get().then((QuerySnapshot querySnapshot) {
+        List<Product_Model> products = [];
+        querySnapshot.docs.map((snapshot) => products.add(Product_Model.fromSnapShot(snapshot)));
+        return products;
+      });
 }

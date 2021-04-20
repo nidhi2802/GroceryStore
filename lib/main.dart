@@ -1,9 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_store/Screens/Welcome/welcome_screen.dart';
 import 'package:grocery_store/constants.dart';
+import 'package:grocery_store/models/appProvider.dart';
 import 'package:provider/provider.dart';
 import 'models/authentication.dart';
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -13,7 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(value: Authentication())
+        ChangeNotifierProvider.value(value: Authentication()),
+        ChangeNotifierProvider.value(value: AppProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
