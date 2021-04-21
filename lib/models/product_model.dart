@@ -12,6 +12,7 @@ class Product_Model{
   static const QUANTITY = "quantity";
   static const UNIT = "unit";
   static const FEATURED = "featured";
+  static const DESCRIPTION = "description";
 
   //private variables
   String _brand;
@@ -20,6 +21,7 @@ class Product_Model{
   String _name;
   String _picture;
   String _quantity;
+  String _description;
   int _price;
   int _unit;
   List _available;
@@ -34,12 +36,12 @@ String get name => _name;
 String get picture => _picture;
 int get price => _price;
 String get quantity => _quantity;
+String get description => _description;
 int get unit => _unit;
 bool get featured => _featured;
 
 Product_Model.fromSnapShot(DocumentSnapshot snapshot){
   Map data = snapshot.data();
-
   _brand = data[BRAND];
   _category = data[CATEGORY];
   _id = data[ID];
@@ -50,6 +52,7 @@ Product_Model.fromSnapShot(DocumentSnapshot snapshot){
   _quantity = data[QUANTITY];
   _unit = data[UNIT];
   _featured = data[FEATURED];
+  _description = data[DESCRIPTION];
 }
 
 }
