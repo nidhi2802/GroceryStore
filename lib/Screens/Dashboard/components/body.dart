@@ -32,9 +32,8 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    AppProvider appProvider = Provider.of<AppProvider>(context);
 
-
+   // final appProvider = Provider.of<AppProvider>(context);
 
     return Column(
       children: <Widget>[
@@ -47,21 +46,22 @@ class _DashboardState extends State<Dashboard> {
         //Horizontal List View
         HorizontalList(),
 
-        /*Row(
+        Row(
           children: <Widget>[
             new Padding(
               padding: const EdgeInsets.all(8.0),
               child: new Text('Recent Products', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
             ),
 
-            Text(appProvider.featureProducts.length.toString(), style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
+           //Text(appProvider.products.length.toString(), style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
 
           ],
-        ),*/
-        new Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: new Text('Recent Products', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
         ),
+        //new Padding(
+          //padding: const EdgeInsets.all(8.0),
+
+          //child: new Text('Recent Products', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
+        //),
 
         Container(
           height: 350,

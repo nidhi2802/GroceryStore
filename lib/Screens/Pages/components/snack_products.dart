@@ -14,13 +14,18 @@ class _Snack_ProductsState extends State<Snack_Products> {
       "name": "Lays Wafers",
       "picture": "assets/products/wafers.jpg",
       "price": 35,
-      "quantity": "1"
+      "quantity": "1",
+      "description": "Relish delectable combination of sour and cream perfectly blended with herb and onion flavour.",
+      "brand":"Lays"
     },
     {
       "name": "Britannia 50-50 Maska Chaska",
       "picture": "assets/products/biscuits.jpg",
       "price": 45,
-      "quantity": "1"
+      "quantity": "1",
+      "description":"5050 Maska Chaska Maska Chaska is a delightful biscuit dipped in butter and peppered with the choicest of herbs. ",
+      "brand":"Britannia"
+
     },
   ];
 
@@ -33,7 +38,10 @@ class _Snack_ProductsState extends State<Snack_Products> {
               cart_prod_name: products_on_cart[index]["name"],
               cart_prod_picture: products_on_cart[index]["picture"],
               cart_prod_price: products_on_cart[index]["price"],
-              cart_prod_qty: products_on_cart[index]["quantity"]);
+              cart_prod_qty: products_on_cart[index]["quantity"],
+              cart_prod_desc: products_on_cart[index]["description"],
+              cart_prod_brand: products_on_cart[index]["brand"]
+          );
         });
   }
 }
@@ -43,12 +51,17 @@ class Single_Snack_Product extends StatelessWidget {
   final cart_prod_picture;
   final cart_prod_price;
   final cart_prod_qty;
+  final cart_prod_desc;
+  final cart_prod_brand;
 
   const Single_Snack_Product({
     this.cart_prod_name,
     this.cart_prod_picture,
     this.cart_prod_price,
-    this.cart_prod_qty});
+    this.cart_prod_qty,
+    this.cart_prod_desc,
+    this.cart_prod_brand
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +75,8 @@ class Single_Snack_Product extends StatelessWidget {
               product_detail_picture: cart_prod_picture,
               product_detail_price: cart_prod_price,
               product_detail_unit: cart_prod_qty,
+              product_detail_desc: cart_prod_desc,
+              product_detail_brand: cart_prod_brand,
             ))),
             child: ListTile(
               leading: Image.asset(

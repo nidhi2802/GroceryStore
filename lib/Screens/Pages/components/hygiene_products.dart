@@ -13,13 +13,17 @@ class _Hygiene_ProductsState extends State<Hygiene_Products> {
       "name": "No.1 Coconut Soap",
       "picture": "assets/products/household1.jpg",
       "price": 60,
-      "quantity": "120 gm"
+      "quantity": "120 gm",
+      "description":"Godrej No.1 Coconut and Neem soap packs the benefits of two great natural ingredients into one.",
+      "brand":"Godrej"
     },
     {
       "name": "Head & Shoulders Conditioner",
       "picture": "assets/products/household2.jpg",
       "price": 120,
-      "quantity": "500 ml"
+      "quantity": "500 ml",
+      "description":"Head & Shoulders Smooth & Silky Dandruff Conditioner is formulated with added moisturizers to restore dry, frizzy hair by helping to lock in dandruff-fighting power.",
+      "brand":"Head & Shoulders"
     },
   ];
   @override
@@ -31,7 +35,9 @@ class _Hygiene_ProductsState extends State<Hygiene_Products> {
               cart_prod_name: products_on_cart[index]["name"],
               cart_prod_picture: products_on_cart[index]["picture"],
               cart_prod_price: products_on_cart[index]["price"],
-              cart_prod_qty: products_on_cart[index]["quantity"]);
+              cart_prod_qty: products_on_cart[index]["quantity"],
+              cart_prod_desc: products_on_cart[index]["description"],
+              cart_prod_brand: products_on_cart[index]["brand"]);
         });
   }
 }
@@ -41,12 +47,16 @@ class Single_Hygiene_Product extends StatelessWidget {
   final cart_prod_picture;
   final cart_prod_price;
   final cart_prod_qty;
+  final cart_prod_desc;
+  final cart_prod_brand;
 
   const Single_Hygiene_Product({
     this.cart_prod_name,
     this.cart_prod_picture,
     this.cart_prod_price,
-    this.cart_prod_qty});
+    this.cart_prod_qty,
+    this.cart_prod_desc,
+    this.cart_prod_brand});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -59,6 +69,8 @@ class Single_Hygiene_Product extends StatelessWidget {
               product_detail_picture: cart_prod_picture,
               product_detail_price: cart_prod_price,
               product_detail_unit: cart_prod_qty,
+              product_detail_desc: cart_prod_desc,
+              product_detail_brand: cart_prod_brand,
             ))),
             child: ListTile(
               leading: Image.asset(

@@ -20,7 +20,7 @@ class Product_Model{
   String _name;
   String _picture;
   String _quantity;
-  double _price;
+  int _price;
   int _unit;
   List _available;
   bool _featured;
@@ -32,7 +32,7 @@ List get available => _available;
 String get id => _id;
 String get name => _name;
 String get picture => _picture;
-double get price => _price;
+int get price => _price;
 String get quantity => _quantity;
 int get unit => _unit;
 bool get featured => _featured;

@@ -13,13 +13,17 @@ class _Household_ProductsState extends State<Household_Products> {
       "name": "Odonil Freshner",
       "picture": "assets/products/hgiene1.jpg",
       "price": 120,
-      "quantity": "1"
+      "quantity": "1",
+      "description": "Odonil Room Freshening Gel offers a fine selection of nature-inspired scents to keep your room fresh and fragrant.",
+      "brand":"Godrej"
     },
     {
       "name": "Aier Room Freshner",
       "picture": "assets/products/hgiene2.jpg",
       "price": 300,
-      "quantity": "1"
+      "quantity": "1",
+      "description": "Godrej AER offers a wide range of air freshener fragrances for home, bathroom & car air fresheners.",
+      "brand":"Godrej"
     },
   ];
 
@@ -32,7 +36,9 @@ class _Household_ProductsState extends State<Household_Products> {
               cart_prod_name: products_on_cart[index]["name"],
               cart_prod_picture: products_on_cart[index]["picture"],
               cart_prod_price: products_on_cart[index]["price"],
-              cart_prod_qty: products_on_cart[index]["quantity"]);
+              cart_prod_qty: products_on_cart[index]["quantity"],
+              cart_prod_desc: products_on_cart[index]["description"],
+              cart_prod_brand: products_on_cart[index]["brand"]);
         });
   }
 }
@@ -42,12 +48,16 @@ class Single_Household_Product extends StatelessWidget {
   final cart_prod_picture;
   final cart_prod_price;
   final cart_prod_qty;
+  final cart_prod_desc;
+  final cart_prod_brand;
 
   const Single_Household_Product({
     this.cart_prod_name,
     this.cart_prod_picture,
     this.cart_prod_price,
-    this.cart_prod_qty});
+    this.cart_prod_qty,
+    this.cart_prod_desc,
+    this.cart_prod_brand});
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +71,8 @@ class Single_Household_Product extends StatelessWidget {
               product_detail_picture: cart_prod_picture,
               product_detail_price: cart_prod_price,
               product_detail_unit: cart_prod_qty,
+              product_detail_desc: cart_prod_desc,
+              product_detail_brand: cart_prod_brand,
             ))),
             child: ListTile(
               leading: Image.asset(

@@ -14,21 +14,24 @@ class _Cart_ProductsState extends State<Cart_Products> {
       "picture": "assets/products/apples.jpg",
       "price": 90,
       "packets": 2,
-      "quantity": "2 kg"
+      "quantity": "2 kg",
+      "description": "Considered as the most commonly grown apples in India, these apples have light red skin, juicy and crunchy flesh. We source the best apples with residue and wax free peel from trusted growers."
     },
     {
       "name": "Coriander",
       "picture": "assets/products/coriander.jpg",
       "price": 50,
       "packets": 2,
-      "quantity": "1 kg"
+      "quantity": "1 kg",
+      "description": "Coriander is an herb that's commonly used to flavor international dishes. It comes from the Coriandrum sativum plant and is related to parsley, carrots, and celery."
     },
     {
       "name": "Lays Wafers",
       "picture": "assets/products/wafers.jpg",
       "price": 35,
       "packets": 3,
-      "quantity": "350 gm"
+      "quantity": "350 gm",
+      "description": "Relish delectable combination of sour and cream perfectly blended with herb and onion flavour."
     },
   ];
 

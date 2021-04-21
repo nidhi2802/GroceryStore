@@ -13,13 +13,17 @@ class _Dairy_ProductsState extends State<Dairy_Products> {
       "name": "Amul Ghee",
       "picture": "assets/products/ghee.jpg",
       "price": 540,
-      "quantity": "500 ml"
+      "quantity": "500 ml",
+      "description": "Amul Ghee is made from fresh cream and it has typical rich aroma and granular texture · Amul Ghee is an ethnic product made by dairies with decades of years.",
+      "brand":"Amul"
     },
     {
       "name": "Amul Butter",
       "picture": "assets/products/butter.jpg",
       "price": 90,
-      "quantity": "500 gm"
+      "quantity": "500 gm",
+      "description": "The Amul butter is smooth and creamy in texture. You can find the butter in two varieties; salted and unsalted. ",
+      "brand":"Amul"
     },
   ];
 
@@ -32,7 +36,9 @@ class _Dairy_ProductsState extends State<Dairy_Products> {
               cart_prod_name: products_on_cart[index]["name"],
               cart_prod_picture: products_on_cart[index]["picture"],
               cart_prod_price: products_on_cart[index]["price"],
-              cart_prod_qty: products_on_cart[index]["quantity"]);
+              cart_prod_qty: products_on_cart[index]["quantity"],
+              cart_prod_desc: products_on_cart[index]["description"],
+              cart_prod_brand: products_on_cart[index]["brand"]);
         });
   }
 }
@@ -42,12 +48,16 @@ class Single_Dairy_Product extends StatelessWidget {
   final cart_prod_picture;
   final cart_prod_price;
   final cart_prod_qty;
+  final cart_prod_desc;
+  final cart_prod_brand;
 
   const Single_Dairy_Product(
       {this.cart_prod_name,
       this.cart_prod_picture,
       this.cart_prod_price,
-      this.cart_prod_qty});
+      this.cart_prod_qty,
+      this.cart_prod_desc,
+      this.cart_prod_brand});
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +72,8 @@ class Single_Dairy_Product extends StatelessWidget {
                       product_detail_picture: cart_prod_picture,
                       product_detail_price: cart_prod_price,
                       product_detail_unit: cart_prod_qty,
+                  product_detail_desc: cart_prod_desc,
+                  product_detail_brand: cart_prod_brand,
                     ))),
             child: ListTile(
               leading: Image.asset(

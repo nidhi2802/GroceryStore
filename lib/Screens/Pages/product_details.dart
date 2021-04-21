@@ -7,12 +7,16 @@ class ProductDetails extends StatefulWidget {
   final product_detail_price;
   final product_detail_picture;
   final product_detail_unit;
+  final product_detail_desc;
+  final product_detail_brand;
 
   ProductDetails(
       {this.product_detail_name,
       this.product_detail_picture,
       this.product_detail_price,
-      this.product_detail_unit});
+      this.product_detail_unit,
+      this.product_detail_desc,
+      this.product_detail_brand});
 
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -79,6 +83,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   return new AlertDialog(
                     title: new Text("Packet Size"),
                     content: new Text("Select the quantity"),
+
                     actions: <Widget>[
                       new MaterialButton(onPressed: (){
                         Navigator.of(context).pop(context);
@@ -97,7 +102,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                   Expanded(
                       child: Text("Packet Sizes")),
                   Expanded(
-                      child: new Icon(Icons.arrow_drop_down)),
+                      child: new Icon(Icons.arrow_drop_down)
+                  ),
                 ],
               ),)),
                         ],
@@ -120,7 +126,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 
           new ListTile(
             title: new Text("Description"),
-            subtitle: new Text("Considered as the most commonly grown apples in India, these apples have light red skin, juicy and crunchy flesh. We source the best apples with residue and wax free peel from trusted growers."),
+            subtitle: new Text(widget.product_detail_desc),
           ),
           Divider(),
 
@@ -137,7 +143,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               Padding(padding: const EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
                 child: new Text("Product Brand", style: TextStyle(color: Colors.grey),),),
               Padding(padding: EdgeInsets.all(5.0),
-                child: new Text("Brand Name"),),
+                child: new Text(widget.product_detail_brand),),
             ],
           ),
           Divider(),
@@ -167,18 +173,24 @@ class _Similar_productsState extends State<Similar_products> {
       "picture": "assets/products/apples.jpg",
       "price": 90,
       "unit": "1 kg",
+      "description": "Considered as the most commonly grown apples in India, these apples have light red skin, juicy and crunchy flesh. We source the best apples with residue and wax free peel from trusted growers.",
+      "brand":"GroceryStore"
     },
     {
       "name": "Coriander",
       "picture": "assets/products/coriander.jpg",
       "price": 50,
       "unit": "500 gm",
+      "description": "Coriander is an herb that's commonly used to flavor international dishes. It comes from the Coriandrum sativum plant and is related to parsley, carrots, and celery.",
+      "brand":"GroceryStore"
     },
     {
       "name": "Lays Wafers",
       "picture": "assets/products/wafers.jpg",
       "price": 35,
       "unit": "1",
+      "description": "Relish delectable combination of sour and cream perfectly blended with herb and onion flavour.",
+      "brand":"Lays"
     },
   ];
 
@@ -195,6 +207,8 @@ class _Similar_productsState extends State<Similar_products> {
           product_picture: products_list[index]['picture'],
           product_price: products_list[index]['price'],
           product_unit: products_list[index]['unit'],
+          product_desc: products_list[index]['description'],
+          product_brand: products_list[index]['brand'],
         );
       },
     );
@@ -207,13 +221,18 @@ class Similar_single_prod extends StatelessWidget {
   final product_picture;
   final product_price;
   final product_unit;
+  final product_desc;
+  final product_brand;
+
 
   Similar_single_prod(
       {
         this.product_name,
         this.product_picture,
         this.product_price,
-        this.product_unit});
+        this.product_unit,
+      this.product_desc,
+      this.product_brand});
 
   @override
   Widget build(BuildContext context) {
@@ -228,6 +247,8 @@ class Similar_single_prod extends StatelessWidget {
                   product_detail_picture: product_picture,
                   product_detail_price: product_price,
                   product_detail_unit: product_unit,
+                  product_detail_desc: product_desc,
+                  product_detail_brand: product_brand,
                 ))),
             child: GridTile(
               footer: Container(
