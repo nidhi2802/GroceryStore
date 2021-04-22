@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/Screens/Dashboard/dashboard.dart';
-import 'package:grocery_store/Screens/Pages/cart.dart';
-import 'package:grocery_store/Screens/Pages/components/cart_products.dart';
+import 'package:grocery_store/Screens/Pages/cartdetails.dart';
 import 'package:grocery_store/constants.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -11,6 +10,7 @@ class ProductDetails extends StatefulWidget {
   final product_detail_unit;
   final product_detail_desc;
   final product_detail_brand;
+  final product_detail_quant;
 
   ProductDetails(
       {this.product_detail_name,
@@ -18,7 +18,8 @@ class ProductDetails extends StatefulWidget {
       this.product_detail_price,
       this.product_detail_unit,
       this.product_detail_desc,
-      this.product_detail_brand});
+      this.product_detail_brand,
+      this.product_detail_quant});
 
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
@@ -121,12 +122,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                 child: new Text("Order Now"),)),
 
               new IconButton(icon: Icon(Icons.add_shopping_cart, color: kPrimaryLightColor,), onPressed: (){
-                Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (context)=>Cart(
+                Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (context)=>CartDetails(
                     cart_prod_name: widget.product_detail_name,
-                  cart_prod_qty: widget.product_detail_unit,
-                  cart_prod_packet: widget.product_detail_unit,
+                    cart_prod_qty: widget.product_detail_unit,
+                    cart_prod_packet: widget.product_detail_quant,
                   cart_prod_price: widget.product_detail_price,
-                  cart_prod_picture: widget.product_detail_picture,
+                    cart_prod_picture: widget.product_detail_picture,
                 )));
               }),
             ],
@@ -183,6 +184,7 @@ class _Similar_productsState extends State<Similar_products> {
       "picture": "assets/products/apples.jpg",
       "price": 90,
       "unit": "1 kg",
+      "quantity": 1,
       "description": "Considered as the most commonly grown apples in India, these apples have light red skin, juicy and crunchy flesh. We source the best apples with residue and wax free peel from trusted growers.",
       "brand":"GroceryStore"
     },
@@ -191,6 +193,7 @@ class _Similar_productsState extends State<Similar_products> {
       "picture": "assets/products/coriander.jpg",
       "price": 50,
       "unit": "500 gm",
+      "quantity": 1,
       "description": "Coriander is an herb that's commonly used to flavor international dishes. It comes from the Coriandrum sativum plant and is related to parsley, carrots, and celery.",
       "brand":"GroceryStore"
     },
@@ -199,6 +202,7 @@ class _Similar_productsState extends State<Similar_products> {
       "picture": "assets/products/wafers.jpg",
       "price": 35,
       "unit": "1",
+      "quantity": 1,
       "description": "Relish delectable combination of sour and cream perfectly blended with herb and onion flavour.",
       "brand":"Lays"
     },
@@ -219,6 +223,7 @@ class _Similar_productsState extends State<Similar_products> {
           product_unit: products_list[index]['unit'],
           product_desc: products_list[index]['description'],
           product_brand: products_list[index]['brand'],
+          product_quant: products_list[index]['quantity'],
         );
       },
     );
@@ -233,6 +238,7 @@ class Similar_single_prod extends StatelessWidget {
   final product_unit;
   final product_desc;
   final product_brand;
+  final product_quant;
 
 
   Similar_single_prod(
@@ -242,7 +248,8 @@ class Similar_single_prod extends StatelessWidget {
         this.product_price,
         this.product_unit,
       this.product_desc,
-      this.product_brand});
+      this.product_brand,
+      this.product_quant});
 
   @override
   Widget build(BuildContext context) {
@@ -259,6 +266,7 @@ class Similar_single_prod extends StatelessWidget {
                   product_detail_unit: product_unit,
                   product_detail_desc: product_desc,
                   product_detail_brand: product_brand,
+                  product_detail_quant: product_quant,
                 ))),
             child: GridTile(
               footer: Container(

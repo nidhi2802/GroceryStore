@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/Screens/Pages/cartdetails.dart';
 import 'package:grocery_store/Screens/Pages/product_details.dart';
 import 'package:grocery_store/constants.dart';
 
@@ -14,6 +15,7 @@ class _Foodgrains_ProductsState extends State<Foodgrains_Products> {
       "picture": "assets/products/foodoil.jpg",
       "price": 560,
       "quantity": "5 litre",
+      "unit": 1,
       "description":"Saffola Active oil also contains Saffola Rice bran oil and soyabean oil. It also contains Omega 3, Oryzanol and Vitamin E.",
       "brand": "Saffola"
     },
@@ -22,6 +24,7 @@ class _Foodgrains_ProductsState extends State<Foodgrains_Products> {
       "picture": "assets/products/hing.jpg",
       "price": 65,
       "quantity": "50 gm",
+      "unit": 1,
       "description": "An inseparable spice of Indian cuisine, asafoetida or Strong Hing Powder, is a gum obtained from a type of giant fennel.",
       "brand": "Ramdev"
     },
@@ -38,7 +41,8 @@ class _Foodgrains_ProductsState extends State<Foodgrains_Products> {
               cart_prod_price: products_on_cart[index]["price"],
               cart_prod_qty: products_on_cart[index]["quantity"],
               cart_prod_desc: products_on_cart[index]["description"],
-              cart_prod_brand: products_on_cart[index]["brand"]);
+              cart_prod_brand: products_on_cart[index]["brand"],
+              cart_prod_quant: products_on_cart[index]["unit"]);
         });
   }
 }
@@ -50,6 +54,7 @@ class Single_foodgrain_product extends StatelessWidget {
   final cart_prod_qty;
   final cart_prod_desc;
   final cart_prod_brand;
+  final cart_prod_quant;
 
 
   const Single_foodgrain_product(
@@ -58,7 +63,8 @@ class Single_foodgrain_product extends StatelessWidget {
       this.cart_prod_price,
       this.cart_prod_qty,
         this.cart_prod_desc,
-        this.cart_prod_brand});
+        this.cart_prod_brand,
+      this.cart_prod_quant});
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +81,7 @@ class Single_foodgrain_product extends StatelessWidget {
                       product_detail_unit: cart_prod_qty,
                       product_detail_desc: cart_prod_desc,
                       product_detail_brand: cart_prod_brand,
+                  product_detail_quant: cart_prod_quant,
                     ))),
             child: ListTile(
               leading: Image.asset(
@@ -120,7 +127,15 @@ class Single_foodgrain_product extends StatelessWidget {
                 ],
               ),
               trailing: TextButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (context)=>CartDetails(
+                    cart_prod_name: cart_prod_name,
+                    cart_prod_qty: cart_prod_qty,
+                    cart_prod_packet: cart_prod_quant,
+                    cart_prod_price: cart_prod_price,
+                    cart_prod_picture: cart_prod_picture,
+                  )));
+                },
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(kPrimaryLightColor)),
                 child: Text("Add", style: TextStyle(color: Colors.white, fontSize: 16.0)),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/Screens/Pages/cartdetails.dart';
 import 'package:grocery_store/Screens/Pages/product_details.dart';
 import 'package:grocery_store/constants.dart';
 
@@ -14,6 +15,7 @@ class _Hygiene_ProductsState extends State<Hygiene_Products> {
       "picture": "assets/products/household1.jpg",
       "price": 60,
       "quantity": "120 gm",
+      "unit": 1,
       "description":"Godrej No.1 Coconut and Neem soap packs the benefits of two great natural ingredients into one.",
       "brand":"Godrej"
     },
@@ -22,6 +24,7 @@ class _Hygiene_ProductsState extends State<Hygiene_Products> {
       "picture": "assets/products/household2.jpg",
       "price": 120,
       "quantity": "500 ml",
+      "unit": 1,
       "description":"Head & Shoulders Smooth & Silky Dandruff Conditioner is formulated with added moisturizers to restore dry, frizzy hair by helping to lock in dandruff-fighting power.",
       "brand":"Head & Shoulders"
     },
@@ -37,7 +40,8 @@ class _Hygiene_ProductsState extends State<Hygiene_Products> {
               cart_prod_price: products_on_cart[index]["price"],
               cart_prod_qty: products_on_cart[index]["quantity"],
               cart_prod_desc: products_on_cart[index]["description"],
-              cart_prod_brand: products_on_cart[index]["brand"]);
+              cart_prod_brand: products_on_cart[index]["brand"],
+              cart_prod_quant: products_on_cart[index]["unit"]);
         });
   }
 }
@@ -49,6 +53,7 @@ class Single_Hygiene_Product extends StatelessWidget {
   final cart_prod_qty;
   final cart_prod_desc;
   final cart_prod_brand;
+  final cart_prod_quant;
 
   const Single_Hygiene_Product({
     this.cart_prod_name,
@@ -56,7 +61,8 @@ class Single_Hygiene_Product extends StatelessWidget {
     this.cart_prod_price,
     this.cart_prod_qty,
     this.cart_prod_desc,
-    this.cart_prod_brand});
+    this.cart_prod_brand,
+    this.cart_prod_quant});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -71,6 +77,7 @@ class Single_Hygiene_Product extends StatelessWidget {
               product_detail_unit: cart_prod_qty,
               product_detail_desc: cart_prod_desc,
               product_detail_brand: cart_prod_brand,
+              product_detail_quant: cart_prod_quant,
             ))),
             child: ListTile(
               leading: Image.asset(
@@ -116,7 +123,15 @@ class Single_Hygiene_Product extends StatelessWidget {
                 ],
               ),
               trailing: TextButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (context)=>CartDetails(
+                    cart_prod_name: cart_prod_name,
+                    cart_prod_qty: cart_prod_qty,
+                    cart_prod_packet: cart_prod_quant,
+                    cart_prod_price: cart_prod_price,
+                    cart_prod_picture: cart_prod_picture,
+                  )));
+                },
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(kPrimaryLightColor)),
                 child: Text("Add", style: TextStyle(color: Colors.white, fontSize: 16.0)),
               ),

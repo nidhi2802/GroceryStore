@@ -17,6 +17,7 @@ class _ProductsState extends State<Products> {
       "picture": "assets/products/apples.jpg",
       "price": 90,
       "unit": "1 kg",
+      "quantity": 1,
       "description": "Considered as the most commonly grown apples in India, these apples have light red skin, juicy and crunchy flesh. We source the best apples with residue and wax free peel from trusted growers.",
       "brand":"GroceryStore"
     },
@@ -25,6 +26,7 @@ class _ProductsState extends State<Products> {
       "picture": "assets/products/coriander.jpg",
       "price": 50,
       "unit": "500 gm",
+      "quantity": 1,
       "description": "Coriander is an herb that's commonly used to flavor international dishes. It comes from the Coriandrum sativum plant and is related to parsley, carrots, and celery.",
       "brand":"GroceryStore"
     },
@@ -33,6 +35,7 @@ class _ProductsState extends State<Products> {
       "picture": "assets/products/wafers.jpg",
       "price": 35,
       "unit": "1",
+      "quantity": 1,
       "description": "Relish delectable combination of sour and cream perfectly blended with herb and onion flavour.",
       "brand":"Lays"
     },
@@ -41,6 +44,7 @@ class _ProductsState extends State<Products> {
       "picture": "assets/products/butter.jpg",
       "price": 90,
       "unit": "500 gm",
+      "quantity": 1,
       "description": "The Amul butter is smooth and creamy in texture. You can find the butter in two varieties; salted and unsalted. ",
       "brand":"Amul"
     },
@@ -49,6 +53,7 @@ class _ProductsState extends State<Products> {
       "picture": "assets/products/ghee.jpg",
       "price": 540,
       "unit": "500 ml",
+      "quantity": 1,
       "description": "Amul Ghee is made from fresh cream and it has typical rich aroma and granular texture · Amul Ghee is an ethnic product made by dairies with decades of years.",
       "brand":"Amul"
     },
@@ -57,6 +62,7 @@ class _ProductsState extends State<Products> {
       "picture": "assets/products/hgiene1.jpg",
       "price": 120,
       "unit": "1",
+      "quantity": 1,
       "description": "Odonil Room Freshening Gel offers a fine selection of nature-inspired scents to keep your room fresh and fragrant.",
       "brand":"Godrej"
     },
@@ -65,6 +71,7 @@ class _ProductsState extends State<Products> {
       "picture": "assets/products/hgiene2.jpg",
       "price": 300,
       "unit": "1",
+      "quantity": 1,
       "description": "Godrej AER offers a wide range of air freshener fragrances for home, bathroom & car air fresheners.",
       "brand":"Godrej"
     },
@@ -73,6 +80,7 @@ class _ProductsState extends State<Products> {
       "picture": "assets/products/household1.jpg",
       "price": 60,
       "unit": "120 gm",
+      "quantity": 1,
       "description":"Godrej No.1 Coconut and Neem soap packs the benefits of two great natural ingredients into one.",
       "brand":"Godrej"
     },
@@ -111,6 +119,7 @@ class _ProductsState extends State<Products> {
             product_picture: products_list[index]['picture'],
             product_price: products_list[index]['price'],
             product_unit: products_list[index]['unit'],
+              product_quant: products_list[index]['quantity'],
             product_desc: products_list[index]['description'],
             product_brand: products_list[index]['brand']
           ),
@@ -130,13 +139,14 @@ class Single_prod extends StatelessWidget {
   final product_unit;
   final product_desc;
   final product_brand;
-
+  final product_quant;
   Single_prod(
       {
       this.product_name,
       this.product_picture,
       this.product_price,
       this.product_unit,
+        this.product_quant,
       this.product_desc,
       this.product_brand});
 
@@ -155,6 +165,7 @@ class Single_prod extends StatelessWidget {
                 product_detail_unit: product_unit,
                 product_detail_desc: product_desc,
                 product_detail_brand: product_brand,
+                product_detail_quant: product_quant,
               ))),
           child: GridTile(
             footer: Container(

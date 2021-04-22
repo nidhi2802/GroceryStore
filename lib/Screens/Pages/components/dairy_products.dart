@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/Screens/Pages/cartdetails.dart';
 import 'package:grocery_store/Screens/Pages/product_details.dart';
 import 'package:grocery_store/constants.dart';
 
@@ -14,6 +15,7 @@ class _Dairy_ProductsState extends State<Dairy_Products> {
       "picture": "assets/products/ghee.jpg",
       "price": 540,
       "quantity": "500 ml",
+      "unit": 1,
       "description": "Amul Ghee is made from fresh cream and it has typical rich aroma and granular texture · Amul Ghee is an ethnic product made by dairies with decades of years.",
       "brand":"Amul"
     },
@@ -22,6 +24,7 @@ class _Dairy_ProductsState extends State<Dairy_Products> {
       "picture": "assets/products/butter.jpg",
       "price": 90,
       "quantity": "500 gm",
+      "unit": 1,
       "description": "The Amul butter is smooth and creamy in texture. You can find the butter in two varieties; salted and unsalted. ",
       "brand":"Amul"
     },
@@ -38,7 +41,8 @@ class _Dairy_ProductsState extends State<Dairy_Products> {
               cart_prod_price: products_on_cart[index]["price"],
               cart_prod_qty: products_on_cart[index]["quantity"],
               cart_prod_desc: products_on_cart[index]["description"],
-              cart_prod_brand: products_on_cart[index]["brand"]);
+              cart_prod_brand: products_on_cart[index]["brand"],
+              cart_prod_quant: products_on_cart[index]["unit"]);
         });
   }
 }
@@ -50,6 +54,7 @@ class Single_Dairy_Product extends StatelessWidget {
   final cart_prod_qty;
   final cart_prod_desc;
   final cart_prod_brand;
+  final cart_prod_quant;
 
   const Single_Dairy_Product(
       {this.cart_prod_name,
@@ -57,7 +62,8 @@ class Single_Dairy_Product extends StatelessWidget {
       this.cart_prod_price,
       this.cart_prod_qty,
       this.cart_prod_desc,
-      this.cart_prod_brand});
+      this.cart_prod_brand,
+        this.cart_prod_quant});
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +80,7 @@ class Single_Dairy_Product extends StatelessWidget {
                       product_detail_unit: cart_prod_qty,
                   product_detail_desc: cart_prod_desc,
                   product_detail_brand: cart_prod_brand,
+                  product_detail_quant: cart_prod_quant,
                     ))),
             child: ListTile(
               leading: Image.asset(
@@ -119,7 +126,15 @@ class Single_Dairy_Product extends StatelessWidget {
                 ],
               ),
               trailing: TextButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (context)=>CartDetails(
+                    cart_prod_name: cart_prod_name,
+                    cart_prod_qty: cart_prod_qty,
+                    cart_prod_packet: cart_prod_quant,
+                    cart_prod_price: cart_prod_price,
+                    cart_prod_picture: cart_prod_picture,
+                  )));
+                },
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(kPrimaryLightColor)),
                 child: Text("Add", style: TextStyle(color: Colors.white, fontSize: 16.0)),
               ),

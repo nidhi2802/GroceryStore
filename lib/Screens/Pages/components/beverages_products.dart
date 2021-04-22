@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/Screens/Pages/cartdetails.dart';
 import 'package:grocery_store/Screens/Pages/product_details.dart';
 import 'package:grocery_store/constants.dart';
 import 'package:grocery_store/models/appProvider.dart';
@@ -17,6 +18,7 @@ class _Beverages_ProductsState extends State<Beverages_Products> {
       "picture": "assets/products/beverages1.jpg",
       "price": 75,
       "quantity": "1 litre",
+      "unit": 1,
       "description":"Pepsi is pop that shakes things up. Pepsi is ubiquitous on just about every social occasion and is also known as party starter.",
       "brand":"Pepsi"
     },
@@ -25,6 +27,7 @@ class _Beverages_ProductsState extends State<Beverages_Products> {
       "picture": "assets/products/beverages2.jpg",
       "price": 30,
       "quantity": "180 ml",
+      "unit": 1,
       "description": "Amul Kool Kesar is refreshing milk with taste of Saffron. It is an easy to use delicious drink that refreshes you immediately with goodness of milk.",
       "brand":"Amul"
     },
@@ -59,7 +62,8 @@ class _Beverages_ProductsState extends State<Beverages_Products> {
               cart_prod_price: products_on_cart[index]["price"],
               cart_prod_qty: products_on_cart[index]["quantity"],
               cart_prod_desc: products_on_cart[index]["description"],
-              cart_prod_brand: products_on_cart[index]["brand"]);
+              cart_prod_brand: products_on_cart[index]["brand"],
+              cart_prod_quant: products_on_cart[index]["unit"]);
         });
   }
 }
@@ -74,6 +78,7 @@ class Single_Beverage_Product extends StatelessWidget {
   final cart_prod_qty;
   final cart_prod_desc;
   final cart_prod_brand;
+  final cart_prod_quant;
 
   const Single_Beverage_Product({
     this.cart_prod_name,
@@ -81,7 +86,8 @@ class Single_Beverage_Product extends StatelessWidget {
     this.cart_prod_price,
     this.cart_prod_qty,
   this.cart_prod_desc,
-  this.cart_prod_brand});
+  this.cart_prod_brand,
+    this.cart_prod_quant});
 
   /*Widget build(BuildContext context) {
     return Card(
@@ -165,9 +171,10 @@ class Single_Beverage_Product extends StatelessWidget {
               product_detail_unit: cart_prod_qty,
               product_detail_desc: cart_prod_desc,
               product_detail_brand: cart_prod_brand,
+              product_detail_quant: cart_prod_quant,
             ))),
             child: ListTile(
-              leading: Image.network(
+              leading: Image.asset(
                 cart_prod_picture,
                 width: 80,
                 height: 80,
@@ -210,7 +217,15 @@ class Single_Beverage_Product extends StatelessWidget {
                 ],
               ),
               trailing: TextButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (context)=>CartDetails(
+                    cart_prod_name: cart_prod_name,
+                    cart_prod_qty: cart_prod_qty,
+                    cart_prod_packet: cart_prod_quant,
+                    cart_prod_price: cart_prod_price,
+                    cart_prod_picture: cart_prod_picture,
+                  )));
+                },
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(kPrimaryLightColor)),
                 child: Text("Add", style: TextStyle(color: Colors.white, fontSize: 16.0)),
               ),

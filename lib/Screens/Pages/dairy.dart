@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/Screens/Dashboard/dashboard.dart';
-import 'package:grocery_store/Screens/Pages/cart.dart';
+import 'package:grocery_store/Screens/Pages/cartdetails.dart';
 import 'package:grocery_store/Screens/Pages/components/dairy_products.dart';
 import 'package:grocery_store/constants.dart';
 
@@ -38,7 +38,13 @@ class _DairyState extends State<Dairy> {
               ),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => new Cart()));
+                    MaterialPageRoute(builder: (context) => new CartDetails(
+                      cart_prod_qty: "2 kg",
+                      cart_prod_packet: 1,
+                      cart_prod_price: 90,
+                      cart_prod_picture: "assets/products/apples.jpg",
+                      cart_prod_name: "Apples",
+                    )));
               })
         ],
       ),

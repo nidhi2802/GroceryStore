@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/Screens/Pages/cartdetails.dart';
 import 'package:grocery_store/Screens/Pages/components/hygiene_products.dart';
 import 'package:grocery_store/Screens/Pages/product_details.dart';
 import 'package:grocery_store/constants.dart';
@@ -15,6 +16,7 @@ class _Snack_ProductsState extends State<Snack_Products> {
       "picture": "assets/products/wafers.jpg",
       "price": 35,
       "quantity": "1",
+      "unit": 1,
       "description": "Relish delectable combination of sour and cream perfectly blended with herb and onion flavour.",
       "brand":"Lays"
     },
@@ -23,6 +25,7 @@ class _Snack_ProductsState extends State<Snack_Products> {
       "picture": "assets/products/biscuits.jpg",
       "price": 45,
       "quantity": "1",
+      "unit": 1,
       "description":"5050 Maska Chaska Maska Chaska is a delightful biscuit dipped in butter and peppered with the choicest of herbs. ",
       "brand":"Britannia"
 
@@ -40,7 +43,8 @@ class _Snack_ProductsState extends State<Snack_Products> {
               cart_prod_price: products_on_cart[index]["price"],
               cart_prod_qty: products_on_cart[index]["quantity"],
               cart_prod_desc: products_on_cart[index]["description"],
-              cart_prod_brand: products_on_cart[index]["brand"]
+              cart_prod_brand: products_on_cart[index]["brand"],
+              cart_prod_quant: products_on_cart[index]["unit"]
           );
         });
   }
@@ -53,6 +57,7 @@ class Single_Snack_Product extends StatelessWidget {
   final cart_prod_qty;
   final cart_prod_desc;
   final cart_prod_brand;
+  final cart_prod_quant;
 
   const Single_Snack_Product({
     this.cart_prod_name,
@@ -60,7 +65,8 @@ class Single_Snack_Product extends StatelessWidget {
     this.cart_prod_price,
     this.cart_prod_qty,
     this.cart_prod_desc,
-    this.cart_prod_brand
+    this.cart_prod_brand,
+    this.cart_prod_quant
   });
 
   @override
@@ -77,6 +83,7 @@ class Single_Snack_Product extends StatelessWidget {
               product_detail_unit: cart_prod_qty,
               product_detail_desc: cart_prod_desc,
               product_detail_brand: cart_prod_brand,
+              product_detail_quant: cart_prod_quant ,
             ))),
             child: ListTile(
               leading: Image.asset(
@@ -122,7 +129,15 @@ class Single_Snack_Product extends StatelessWidget {
                 ],
               ),
               trailing: TextButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (context)=>CartDetails(
+                    cart_prod_name: cart_prod_name,
+                    cart_prod_qty: cart_prod_qty,
+                    cart_prod_packet: cart_prod_quant,
+                    cart_prod_price: cart_prod_price,
+                    cart_prod_picture: cart_prod_picture,
+                  )));
+                },
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(kPrimaryLightColor)),
                 child: Text("Add", style: TextStyle(color: Colors.white, fontSize: 16.0)),
               ),

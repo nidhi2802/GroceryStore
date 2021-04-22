@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/Screens/Dashboard/components/body.dart';
 import 'package:grocery_store/Screens/Pages/about.dart';
-import 'package:grocery_store/Screens/Pages/cart.dart';
+import 'package:grocery_store/Screens/Pages/cartdetails.dart';
 import 'package:grocery_store/constants.dart';
 
 class Dashboard_Screen extends StatelessWidget {
@@ -49,7 +49,13 @@ class Dashboard_Screen extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => new Cart()));
+                    MaterialPageRoute(builder: (context) => new CartDetails(
+                      cart_prod_qty: "2 kg",
+                      cart_prod_packet: 1,
+                      cart_prod_price: 90,
+                      cart_prod_picture: "assets/products/apples.jpg",
+                      cart_prod_name: "Apples",
+                    )));
               })
         ],
       ),
@@ -99,7 +105,13 @@ class Dashboard_Screen extends StatelessWidget {
             InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => new Cart()));
+                    MaterialPageRoute(builder: (context) => new CartDetails(
+                      cart_prod_qty: "2 kg",
+                      cart_prod_packet: 1,
+                      cart_prod_price: 90,
+                      cart_prod_picture: "assets/products/apples.jpg",
+                      cart_prod_name: "Apples",
+                    )));
               },
               child: ListTile(
                 title: Text('My Cart'),
