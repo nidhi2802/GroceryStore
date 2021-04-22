@@ -80,9 +80,10 @@ class _ProductsState extends State<Products> {
 
   @override
   Widget build(BuildContext context) {
-    //final productProvider = Provider.of<AppProvider>(context);
+    final productProvider = Provider.of<AppProvider>(context);
 
     /*return GridView.builder(
+      itemCount: productProvider.products.length,
       gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       ),
@@ -140,6 +141,7 @@ class Single_prod extends StatelessWidget {
       this.product_brand});
 
   @override
+  @override
   Widget build(BuildContext context) {
     return Container(
       //child: Hero(
@@ -147,17 +149,17 @@ class Single_prod extends StatelessWidget {
         child: InkWell(
           onTap: () => Navigator.of(context).push(new MaterialPageRoute(
               builder: (context) => new ProductDetails(
-                    product_detail_name: product_name,
-                    product_detail_picture: product_picture,
-                    product_detail_price: product_price,
-                    product_detail_unit: product_unit,
+                product_detail_name: product_name,
+                product_detail_picture: product_picture,
+                product_detail_price: product_price,
+                product_detail_unit: product_unit,
                 product_detail_desc: product_desc,
                 product_detail_brand: product_brand,
-                  ))),
+              ))),
           child: GridTile(
             footer: Container(
               color: Colors.white,
-              /*child: ListTile(
+              child: ListTile(
                 title: Text(
                   product_name,
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -167,15 +169,15 @@ class Single_prod extends StatelessWidget {
                       color: kPrimaryLightColor,
                       fontWeight: FontWeight.bold,
                     )),
-              ),*/
-              child: new Row(
+              ),
+              /*child: new Row(
                   children: <Widget>[
                     Expanded(
-                        child: Text(product_name, style: TextStyle(fontWeight: FontWeight.bold))),
-                    new Text("\Rs$product_price", style: TextStyle(
+                        child: Text(product.name, style: TextStyle(fontWeight: FontWeight.bold))),
+                    new Text("\Rs$product.price", style: TextStyle(
                         color: kPrimaryLightColor, fontWeight: FontWeight.bold,),),
                   ],
-                ),
+                ),*/
             ),
             child: Image.asset(
               product_picture,
@@ -187,4 +189,51 @@ class Single_prod extends StatelessWidget {
       //),
     );
   }
+/*Widget build(BuildContext context) {
+    return Container(
+      //child: Hero(
+      child: Material(
+        child: InkWell(
+          onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+              builder: (context) => new ProductDetails(
+                    product_detail_name: product.name,
+                    product_detail_picture: product.picture,
+                    product_detail_price: product.price,
+                    product_detail_unit: product.unit,
+                product_detail_desc: product.description,
+                product_detail_brand: product.brand,
+                  ))),
+          child: GridTile(
+            footer: Container(
+              color: Colors.white,
+              child: ListTile(
+                title: Text(
+                  product.name,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                trailing: Text("\Rs${product.price}",
+                    style: TextStyle(
+                      color: kPrimaryLightColor,
+                      fontWeight: FontWeight.bold,
+                    )),
+              ),
+              /*child: new Row(
+                  children: <Widget>[
+                    Expanded(
+                        child: Text(product.name, style: TextStyle(fontWeight: FontWeight.bold))),
+                    new Text("\Rs$product.price", style: TextStyle(
+                        color: kPrimaryLightColor, fontWeight: FontWeight.bold,),),
+                  ],
+                ),*/
+            ),
+            child: Image.network(
+              product.picture,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ),
+      //),
+    );
+  }*/
 }

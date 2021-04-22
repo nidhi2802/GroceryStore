@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/Screens/Pages/product_details.dart';
 import 'package:grocery_store/constants.dart';
+import 'package:grocery_store/models/appProvider.dart';
+import 'package:grocery_store/models/product_model.dart';
+import 'package:provider/provider.dart';
 
 class Beverages_Products extends StatefulWidget {
   @override
@@ -27,8 +30,26 @@ class _Beverages_ProductsState extends State<Beverages_Products> {
     },
   ];
 
+
   @override
   Widget build(BuildContext context) {
+    final productProvider = Provider.of<AppProvider>(context);
+
+    /*return new ListView.builder(
+        itemCount: productProvider.products.length,
+        itemBuilder: (context, index) {
+
+          return Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Column(
+              children: productProvider.products
+                  .map((item) => GestureDetector(
+                child: Single_Beverage_Product(
+                  product: item,
+                ),
+              ))
+                  .toList(),),);
+        });*/
     return new ListView.builder(
         itemCount: products_on_cart.length,
         itemBuilder: (context, index) {
@@ -44,6 +65,9 @@ class _Beverages_ProductsState extends State<Beverages_Products> {
 }
 
 class Single_Beverage_Product extends StatelessWidget {
+
+  //final Product_Model product;
+  //const Single_Beverage_Product({Key key, this.product}) : super(key: key);
   final cart_prod_name;
   final cart_prod_picture;
   final cart_prod_price;
@@ -59,6 +83,74 @@ class Single_Beverage_Product extends StatelessWidget {
   this.cart_prod_desc,
   this.cart_prod_brand});
 
+  /*Widget build(BuildContext context) {
+    return Card(
+      child: Hero(
+        tag: Text("Hero no 1"),
+        child: Material(
+          child: InkWell(
+            onTap: () =>Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> ProductDetails(
+              product_detail_name: product.name,
+              product_detail_picture: product.picture,
+              product_detail_price: product.price,
+              product_detail_unit: product.quantity,
+              product_detail_desc: product.description,
+              product_detail_brand: product.brand,
+            ))),
+            child: ListTile(
+              leading: Image.network(
+                product.picture,
+                width: 80,
+                height: 80,
+              ),
+              title: Text(
+                product.name,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: new Column(
+                children: <Widget>[
+                  new Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0,8.0,0.0,8.0),
+                        child: Text("Quantity:"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0,8.0,0.0,8.0),
+                        child: Text(
+                          product.quantity,
+                          style: TextStyle(color: kPrimaryLightColor),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Row(
+                      children: <Widget>[
+                        Text(
+                          "Rs. ${product.price}",
+                          style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              color: kPrimaryLightColor),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              trailing: TextButton(
+                onPressed: (){},
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(kPrimaryLightColor)),
+                child: Text("Add", style: TextStyle(color: Colors.white, fontSize: 16.0)),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }*/
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -75,7 +167,7 @@ class Single_Beverage_Product extends StatelessWidget {
               product_detail_brand: cart_prod_brand,
             ))),
             child: ListTile(
-              leading: Image.asset(
+              leading: Image.network(
                 cart_prod_picture,
                 width: 80,
                 height: 80,
