@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/Screens/Dashboard/dashboard.dart';
+import 'package:grocery_store/Screens/Pages/cart.dart';
+import 'package:grocery_store/Screens/Pages/components/cart_products.dart';
 import 'package:grocery_store/constants.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -118,7 +120,15 @@ class _ProductDetailsState extends State<ProductDetails> {
                 elevation: 0.2,
                 child: new Text("Order Now"),)),
 
-              new IconButton(icon: Icon(Icons.add_shopping_cart, color: kPrimaryLightColor,), onPressed: (){}),
+              new IconButton(icon: Icon(Icons.add_shopping_cart, color: kPrimaryLightColor,), onPressed: (){
+                Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (context)=>Cart(
+                    cart_prod_name: widget.product_detail_name,
+                  cart_prod_qty: widget.product_detail_unit,
+                  cart_prod_packet: widget.product_detail_unit,
+                  cart_prod_price: widget.product_detail_price,
+                  cart_prod_picture: widget.product_detail_picture,
+                )));
+              }),
             ],
           ),
 

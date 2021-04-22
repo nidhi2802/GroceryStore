@@ -80,7 +80,7 @@ class _ProductsState extends State<Products> {
 
   @override
   Widget build(BuildContext context) {
-    final productProvider = Provider.of<AppProvider>(context);
+    //final productProvider = Provider.of<AppProvider>(context);
 
     /*return GridView.builder(
       gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
@@ -173,7 +173,7 @@ class Single_prod extends StatelessWidget {
                     Expanded(
                         child: Text(product_name, style: TextStyle(fontWeight: FontWeight.bold))),
                     new Text("\Rs$product_price", style: TextStyle(
-                        color: kPrimaryLightColor, fontWeight: FontWeight.bold,),)
+                        color: kPrimaryLightColor, fontWeight: FontWeight.bold,),),
                   ],
                 ),
             ),

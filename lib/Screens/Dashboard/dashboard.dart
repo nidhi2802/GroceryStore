@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_store/Screens/Dashboard/components/body.dart';
+import 'package:grocery_store/Screens/Pages/about.dart';
 import 'package:grocery_store/Screens/Pages/cart.dart';
 import 'package:grocery_store/constants.dart';
 
@@ -107,7 +108,10 @@ class Dashboard_Screen extends StatelessWidget {
             ),
             Divider(),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new About()));
+              },
               child: ListTile(
                 title: Text('About'),
                 leading: Icon(Icons.help_rounded, color: kPrimaryLightColor),
