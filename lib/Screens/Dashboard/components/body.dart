@@ -33,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
 
-   // final appProvider = Provider.of<AppProvider>(context);
+   final appProvider = Provider.of<AppProvider>(context);
 
     return Column(
       children: <Widget>[
@@ -53,7 +53,7 @@ class _DashboardState extends State<Dashboard> {
               child: new Text('Recent Products', style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
             ),
 
-           //Text(appProvider.products.length.toString(), style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
+           Text(appProvider.products.length.toString(), style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.black),),
 
           ],
         ),
